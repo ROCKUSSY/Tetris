@@ -67,9 +67,13 @@ private:
     // Play background music
     void playMusic() {
         if (musicEnabled) {
-            PlaySound(TEXT("ganna.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-            
+            PlaySound(TEXT("ganna.wav"), NULL, SND_ASYNC | SND_LOOP | SND_FILENAME);
         }
+    }
+
+    // Stop background music
+    void stopMusic() {
+        PlaySound(NULL, NULL, 0);
     }
 
     // Set console text color
@@ -152,7 +156,7 @@ public:
 
     ~TetrisGame() {
         // Stop music when game ends
-        PlaySound(NULL, NULL, 0);
+        stopMusic();
     }
 
     void resetGame() {
@@ -298,7 +302,7 @@ public:
             }
         }
         
-        // Draw score and controls (unchanged)
+        // Draw score and controls
         setColor(15);
         gotoXY(0, HEIGHT);
         cout << "Score: " << score << "  Highscore: " << highScore;
@@ -351,7 +355,7 @@ public:
                         current->rotateLeft(); 
                         if (!canMove(0, 0)) current->rotateRight();
                         break;
-                        case 'r': 
+                    case 'r': 
                         resetGame();
                         clearFullScreen();
                         draw();
@@ -359,9 +363,12 @@ public:
                     case 'm':
                         musicEnabled = !musicEnabled;
                         if (musicEnabled) playMusic();
-                        else PlaySound(NULL, NULL, 0);
+                        else stopMusic();
                         break;
-                    case 27: return; // ESC to exit
+                    case 27: 
+                        system("cls");
+                        cout << "Thank you for playing!";
+                        return; // ESC to exit
                 }
                 draw();
             }
