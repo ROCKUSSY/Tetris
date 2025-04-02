@@ -1,76 +1,48 @@
-# Tetris
 # Tetris Game in C++
 
 ## Overview
-This is a simple console-based Tetris game built using C++. It utilizes Windows API functions for console manipulation, such as setting text colors, moving the cursor, and playing background music.
+This is a console-based Tetris game implemented in C++ using the Windows API for console manipulation. It features a classic Tetris experience with various block shapes, smooth controls, a ghost piece for better visibility, and background music.
 
 ## Features
-- **Classic Tetris gameplay** with falling blocks and rotation
-- **Ghost piece preview** to show where the current piece will land
-- **Scoring system** with high score tracking
-- **Background music support** using `PlaySound()`
-- **Keyboard controls** for movement, rotation, and restarting the game
-- **Windows console-based rendering** for smooth animation
+- **Classic Tetris Gameplay**: Standard 10x20 grid with different shaped blocks.
+- **Piece Rotation**: Rotate pieces left ('Z') and right ('X').
+- **Ghost Piece**: Shows where the current piece will land.
+- **Scoring System**: Gain points for clearing lines.
+- **High Score Tracking**: Persistent high score display.
+- **Music Playback**: Background music can be toggled on/off.
+- **Soft & Hard Drop**: Move pieces down manually or instantly drop them.
+- **User-Friendly Controls**:
+  - `A/D` to move left/right
+  - `S` to move down
+  - `Z/X` to rotate
+  - `Space` to hard drop
+  - `R` to restart
+  - `M` to toggle music
+  - `ESC` to exit
+- **Windows Console UI**: Utilizes colors for different pieces and dynamically updates the screen.
 
-## Requirements
-- Windows OS (since it uses Windows-specific APIs like `PlaySound`, `SetConsoleTextAttribute`, etc.)
-- C++ Compiler (MinGW, MSVC, or any other that supports Windows API functions)
-- A compatible `.wav` file for background music (e.g., `ganna.wav` in the same directory as the executable)
+## Installation and Running the Game
+1. Ensure you have a Windows machine with a C++ compiler (MinGW or MSVC).
+2. Clone or download the repository.
+3. Compile the code using:
+   ```bash
+   g++ tetris.cpp -o tetris -lwinmm
+   ```
+4. Run the executable:
+   ```bash
+   tetris.exe
+   ```
 
-## Installation & Compilation
-### 1. Clone the repository
-```sh
- git clone https://github.com/yourusername/game-cpp.git
- cd game-cpp
-```
+## Screenshots
+![WhatsApp Image 2025-04-02 at 16 22 15_8e527442](https://github.com/user-attachments/assets/6821fb43-d519-4573-b0b1-2ec7ab2c7cde)
 
-### 2. Compile the program
-Using MinGW:
-```sh
-g++ game.cpp -o game.exe -lwinmm
-```
-Or using MSVC:
-```sh
-cl game.cpp /Fe:game.exe /link winmm.lib
-```
-
-### 3. Run the game
-```sh
-game.exe
-```
-
-## Controls
-- **A / D** → Move piece left / right
-- **S** → Move piece down
-- **Space** → Drop piece instantly
-- **Z / X** → Rotate piece left / right
-- **R** → Restart game
-- **M** → Toggle background music
-- **ESC** → Exit game
-
-## Troubleshooting
-### **Music not playing?**
-- Ensure `ganna.wav` is in the same directory as `game.exe`
-- The `.wav` file should be in **PCM format**
-- Try replacing `PlaySound()` with `mciSendString()` (see alternative implementation in comments)
-
-### **Game crashes or visual glitches?**
-- Run the program in **Windows CMD**, not in an IDE terminal
-- Use a **console window size of at least 22x25** (set automatically in the code)
-- Try running as Administrator if the console window is not resizing properly
-
-## Future Improvements
-- Adding an **AI opponent** or multiplayer mode
-- Implementing **soft drop and hold piece mechanics**
-- Supporting **customizable key bindings**
-- Cross-platform support for Linux & macOS (replace Windows-specific APIs)
-
-## License
-This project is open-source .
+![WhatsApp Image 2025-04-02 at 16 24 04_3a107330](https://github.com/user-attachments/assets/fe160028-254c-472d-a297-dd99190415fe)
 
 ## Author
-Developed by THE GENERALS
+**The Generals**
 
----
-Happy coding! 🎮
+## Notes
+- The game uses `windows.h` and `mmsystem.h`, making it Windows-exclusive.
+- Background music file (`ganna.wav`) should be in the same directory.
+- The console size is set to 22 columns by 25 lines for optimal display.
 
