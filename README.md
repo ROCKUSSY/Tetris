@@ -20,23 +20,23 @@ This is a simple console-based Tetris game built using C++. It utilizes Windows 
 ## Installation & Compilation
 ### 1. Clone the repository
 ```sh
- git clone https://github.com/yourusername/tetris-cpp.git
- cd tetris-cpp
+ git clone https://github.com/yourusername/game-cpp.git
+ cd game-cpp
 ```
 
 ### 2. Compile the program
 Using MinGW:
 ```sh
-g++ tetris.cpp -o tetris.exe -lwinmm
+g++ game.cpp -o game.exe -lwinmm
 ```
 Or using MSVC:
 ```sh
-cl tetris.cpp /Fe:tetris.exe /link winmm.lib
+cl game.cpp /Fe:game.exe /link winmm.lib
 ```
 
 ### 3. Run the game
 ```sh
-tetris.exe
+game.exe
 ```
 
 ## Controls
@@ -50,7 +50,7 @@ tetris.exe
 
 ## Troubleshooting
 ### **Music not playing?**
-- Ensure `ganna.wav` is in the same directory as `tetris.exe`
+- Ensure `ganna.wav` is in the same directory as `game.exe`
 - The `.wav` file should be in **PCM format**
 - Try replacing `PlaySound()` with `mciSendString()` (see alternative implementation in comments)
 
@@ -66,10 +66,10 @@ tetris.exe
 - Cross-platform support for Linux & macOS (replace Windows-specific APIs)
 
 ## License
-This project is open-source and available under the **MIT License**.
+This project is open-source .
 
 ## Author
-Developed by **[Your Name]**
+Developed by THE GENERALS
 
 ---
 Happy coding! 🎮
